@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="javascript.js" defer    ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="body_reg" onload="dolociCeno()">
+
+    <div class="container_reg col-md-7 col-xs-12">
+        <br>
+        <br>
+        <h1 class="h1">Registracija</h1>
+        <!--<form name="obrazec">-->
+            <label for="username">Uporabniško ime</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Geslo</label>
+            <input type="password" id="password" name="password">
+            <label for="password">Ponovi geslo</label>
+            <input type="password" id="repeat_password" name="repeat_password">
+            <label for="email">E-naslov</label>
+            <input type="email" id="email" name="email">
+            <br />
+            <p style="margin-bottom: 0;">Izberite željeni tip naročnine: </p>
+            <div style="display: inline-block;">
+                <label for="option1">
+                    <input type="radio" id="letna" name="izbira" value="30">Letna
+                </label>
+                <label for="option2">
+                    <input type="radio" id="polletna" name="izbira" value="15">Polletna
+                </label>
+                <label for="option3">
+                    <input type="radio" id="mesecna" name="izbira" value="5">Mesečna
+                </label>
+            </div>
+            <br />
+            <div style="display: inline-block; background-color:aliceblue;">
+                <p style="display: inline;">CENA: </p>
+                <div id="izpisCene" style="display: inline;"></div>
+            </div>
+            <br /><br />
+            <button onclick="validacija()">Register</button>
+        </form>
+        <div id="rdeci"></div>
+        <div id="rumeni"></div>
+    </div>
+
+</body>
+
+</html>

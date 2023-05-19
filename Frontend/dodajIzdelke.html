@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Motonet
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="javascript.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body onload="datumUra();ponudbaSportMotorjevZaAdmine()">
+    <div id="datum_ura">
+        <p id="datum"></p>
+    </div>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img
+                        src="https://www.motoshop.lt/skin/frontend/default/motoshop/images/logo.png" id="logo"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="kategorijaSTabelo.html">Sport</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">O nas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kosarica.html">Košarica</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prijava.html" id="prijava">Prijava</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registracija.html" id="registracija">Registracija</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link poudarjen" id="vcasihNeviden" style="display:none;"
+                                href="dodajIzdelke.html">Dodaj Izdelke</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="container-sport"></div>
+    <div>
+        <form class="col-md-6" id="dodajNovIzdelek" name="dodajNovIzdelek">
+            <label for="naziv">Naziv izdelka</label>
+            <input type="text" id="naziv"><br><br>
+            <label for="cena">Cena:</label>
+            <input type="number" id="cena" min="0" step=".01"><br><br>
+            <label for="fotografija">Povezava do fotografije:</label>
+            <input type="text" id="fotografija"><br><br>
+            <label for="stran">Povezava od produkta:</label>
+            <input type="text" id="stran"><br><br>
+            <label for="popust">Popust:</label>
+            <input type="number" id="popust" min="0" max="100" step="1"><br><br>
+            <input type="submit" value="DODAJ"><br><br>
+        </form>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            2023 Anja Lečnik
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $("#dodajNovIzdelek").submit(function (event) {
+            event.preventDefault()
+
+            const novIzdelek = {
+                naziv: document.getElementById("naziv").value,
+                cena: document.getElementById("cena").value,
+                fotografija: document.getElementById("fotografija").value,
+                stran: document.getElementById("stran").value,
+                popust: document.getElementById("popust").value
+            };
+            console.log(novIzdelek);
+
+            $.ajax({
+                type: "POST",
+                data: novIzdelek,
+                url: "http://localhost:3000/sport_izdelki",
+                success: function (odgovor) {
+                    console.log(odgovor)
+                    alert("Izdelek je bil uspešno dodan");
+                    location.reload();
+                },
+                error: function () {
+                    alert('Napaka');
+                }
+            })
+        })
+
+    </script>
+</body>
+
+
+</html>

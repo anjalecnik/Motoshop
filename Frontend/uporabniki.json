@@ -1,0 +1,16 @@
+{
+    "registrirani": [
+        {
+            "uporabnisko_ime" : "Admin",
+            "geslo" : "12345"
+        },
+        {
+            "uporabnisko_ime" : "Peter",
+            "geslo": "7890"
+        },
+        {
+            "uporabnisko_ime" : "Nik",
+            "geslo": "adidaspredatorpro"
+        }
+    ]
+}

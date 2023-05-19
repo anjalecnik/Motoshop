@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosarica</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="javascript.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body onload="izrisiKosarico(), dolociObresti()">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img
+                        src="https://www.motoshop.lt/skin/frontend/default/motoshop/images/logo.png" id="logo"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="kategorijaSTabelo.html">Sport</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">O nas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kosarica.html">Košarica</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prijava.html" id="prijava">Prijava</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registracija.html" id="registracija">Registracija</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <table id="tabela" style="border-style: solid; text-align: center; width:100%">
+    </table>
+    <br>
+    <br>
+    <div>
+        Izberite število obrokov
+        <div style="display: inline-block;">
+            <label for="option1">
+                <input type="radio" id="6" name="izbira" value="6">6 mesecev
+            </label>
+            <label for="option2">
+                <input type="radio" id="12" name="izbira" value="12">12 mesecev
+            </label>
+            <label for="option3">
+                <input type="radio" id="24" name="izbira" value="24">24 mesecev
+            </label>
+        </div>
+        <br>
+        <p style="display: inline;">CENA NAKUPA NA OBROKE: </p>
+        <div id="izpisObresti" style="display: inline;"></div>
+        <br>
+        <p style="display: inline;">CENA OBROKA: </p>
+        <div id="izpisObroka" style="display: inline;"></div>
+    </div>
+    <form method="post" id="poslji">
+        <button id="poslji2">PLAČAJ</button>
+    </form>
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            2023 Anja Lečnik
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#poslji").submit(function (event) {
+            event.preventDefault()
+
+            var kosaricaZaPosiljanje = JSON.parse(sessionStorage.getItem("poljeIzdelkov"));
+            console.log("kosaricaZaPosiljanje je " + kosaricaZaPosiljanje);
+            const seznamIzbranihIzdelkov = [];
+            for (let i = 0; i < kosaricaZaPosiljanje.length; i++) {
+                console.log("izpis imena izdelka " + kosaricaZaPosiljanje[i][0]);
+                seznamIzbranihIzdelkov.push(kosaricaZaPosiljanje[i][0]);
+            }
+
+            var idUporabnikaZaPosiljanje = JSON.parse(sessionStorage.getItem("uporabniki"));
+            console.log("idUporabnikaZaPosiljanje je " + idUporabnikaZaPosiljanje);
+
+            const podatkiZaPosiljanje = {
+                id: idUporabnikaZaPosiljanje,
+                izbraniIzdelki: seznamIzbranihIzdelkov,
+                skupnaCena: izracunajCeno().toFixed(2),
+                datumNakupa: new Date()
+            };
+            console.log(podatkiZaPosiljanje);
+
+            $.ajax({
+                type: "POST",
+                data: podatkiZaPosiljanje,
+                url: "http://localhost:3000/shraniPodatkeKosarice",
+                success: function (odgovor) {
+                    console.log(odgovor)
+                    alert("uspešno shranjeno");
+                },
+                error: function () {
+                    alert('Pri shranjevanju podatkov je prišlo do napake');
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
