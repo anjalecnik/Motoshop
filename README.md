@@ -5,6 +5,7 @@ Omogočena je tudi prijava oziroma registracija. Admin lahko ob prijavi izdelke 
 Podatki o produktih in uporabnikih se s pomočjo Node.js serverja pridobivajo iz SQLite baze. Dizajn strani je zaradi uporabe Bootstrap-a odziven, zato je spletna aplikacija dostopna za uporabo na vseh velikostih ekranov.<br/>
 <br/>
 <i>V mapi frontend se nahaja tudi JSON datoteka, ki pa ni v uporabi - podatki strani so se namreč izvirno brali iz JSON datotek, podatkovna baza je bila dodana kasneje. </i>
+Za potrebe simuliranja delovanja razvite aplikacije se strežniška stran izvaja na platformi fly.io, medtem ko je frontend na GitHub Pages. Za ogled obiščite naslov https://anjalecnik.github.io/Motoshop/Frontend/index.html.</br>
 <br/>
 <h2>About</h2>
 This online store, created as part of the Basics of Web Technologies course, allows users to browse and purchase engines online. The website is built using HTML5/CSS and operates with the help of a Node.js server. </br>
@@ -14,6 +15,7 @@ an admin, enter 'Admin' as the username and '12345' as the password).</br>
 Product and user data are obtained from an SQLite database using the Node.js server. Additionally, the website design is responsive, thanks to the use of Bootstrap, making the web application accessible on screens of all sizes.</br>
 <br/>
 <i>There is also a JSON file in the frontend folder that is not in use - originally, the website data was read from JSON files, but a database was added later.</i>
+For the purpose of simulating the operation of the developed application, the server-side is running on the fly.io platform (platform for deploying applications), while the frontend is hosted on GitHub Pages. To view it, please visit the following address: https://anjalecnik.github.io/Motoshop/Frontend/index.html.
 <br/>
 </br>
 <h2>Uporabljene tehnologije / Used technologies</h2>
