@@ -389,7 +389,7 @@ function prijava() {
   })
     .then(response => response.json())
     .then(data => {
-      if (data.message === 'Not found') {
+      if (data.message === 'EmptyResponse') {
         const napaka = document.getElementById('napaka');
         napaka.innerText = 'Uporabniško ime ali geslo nista pravilna.';
         napaka.style.display = 'block';
