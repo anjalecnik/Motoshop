@@ -25,6 +25,7 @@ Product and user data are obtained from an SQLite database using the Node.js ser
 <li>JavaScript</li>
 <li>JSON</li>
 <li>Node.js</li>
+<li>Ajax</li>
 <li>Express</li>
 <li>Bookshelf</li>
 <li>Knex</li>
