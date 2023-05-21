@@ -1,7 +1,7 @@
 <h2>O projektu</h2>
 Spletna trgovina, kreirana v okviru predmeta Osnove spletnih tehnologij, omogoča online pregled in nakup motorjev. Stran je narejena s HTML5/CSS in deluje s pomočjo Node.js serverja.<br/>
 Uporabnikom omogoča pregledovanje artiklov trgovine Motoshop in dodajanje v košarico (na podstrani 'Sport'). Košarico lahko pregledajo, iz nje odstranijo artikle in izračunajo mesečni obrok v primeru nakupa na obroke. Nakup je simuliran z zapisom podatkov košarice in uporabnika v podatkovno bazo. <br/>
-Omogočena je tudi prijava oziroma registracija. Admin lahko ob prijavi izdelke dodaja in odstranjuje iz ponudbe, spremembe pa so vidne ostalim uporabnikom (za prijavo kot admin kot uporabniško ime vnesite 'Admin' in kot geslo '12345'). </br>
+Omogočena je tudi prijava oziroma registracija. Admin lahko ob prijavi izdelke dodaja in odstranjuje iz ponudbe, spremembe pa so vidne ostalim uporabnikom (za prijavo v administratorski način kot uporabniško ime vnesite 'Admin' in kot geslo '12345'). </br>
 Podatki o produktih in uporabnikih se s pomočjo Node.js serverja pridobivajo iz SQLite baze. Dizajn strani je zaradi uporabe Bootstrap-a odziven, zato je spletna aplikacija dostopna za uporabo na vseh velikostih ekranov.<br/>
 <br/>
 <i>V mapi frontend se nahaja tudi JSON datoteka, ki pa ni v uporabi - podatki strani so se namreč izvirno brali iz JSON datotek, podatkovna baza je bila dodana kasneje. </i>
