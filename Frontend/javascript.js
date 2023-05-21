@@ -408,7 +408,7 @@ function odstraniIzdelek(indeksIzdelka) {
   $.ajax({
     type: "DELETE",
     data: indeksIzdelka,
-    url: "http://localhost:3000/sport_izdelki/" + indeksIzdelka,
+    url: "https://motoshop.fly.dev/sport_izdelki/" + indeksIzdelka,
     success: function (odgovor) {
       alert("Izdelek je bil uspešno odstranjen");
       location.reload()
